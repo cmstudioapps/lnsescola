@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resultados L N S</title>
+  
+  <style>
+    
+    body {
+      
+      background-image: url('Fundo.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      
+      color: white;
+      text-align: center;
+      
+      
+      
+    }
+    #resultado {
+      
+      background-color: blueviolet;
+      
+      border-radius: 20px;
+      height: 200px;
+      width: 320px;
+      margin: auto;
+      font-size: 25px;
+      box-shadow: 4px 8px 13px white;
+      
+    }
+    
+    button {
+      
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 20px;
+      height: 50px;
+      width: 200px;
+      box-shadow: 4px 8px 13px blueviolet;
+      
+      
+      
+    }
+   #remover:hover {
+     
+     background-color: orangered;
+     
+   }
+    
+    #empate {
+      
+      display: none;
+      
+      
+    }
+    
+  </style>
+  
+</head>
+
+<body>
+ 
+ <h2>Pontuação de organização acumuladas.</h2>
+
+  <div id="resultado">
+    
+    
+    
+  </div>
+<br>
+<button id="remover" onclick="remover()">Excluir pontuações</button>
+
+<p>
+<strong> • Exclua as pontuações quando for recomeçar.
+</strong>
+</p>
+<br>
+   <div id="empate">
+     
+     •Parece que houve um empate, quital<br> desempatar isso com um sorteio?
+     <br> <br>
+     <button id="sorteio" onclick="sorteio()">Sortear</button>
+     
+     
+   </div>
+
+<script>
+  
+  var pontosA = localStorage.getItem("pontosAA")
+  var pontosB = localStorage.getItem("pontosBB")
+  var pontosC = localStorage.getItem("pontosCC")
+  
+  resultado.innerHTML = "<p>Resultados:</p>"+ "<strong>▪︎ 3° A : "+pontosA +"<br>▪︎ 3° B : "+pontosB +"<br>▪︎ 3° C : "+pontosC+"</strong>"
+  
+  
+  if (pontosA === null && pontosB === null && pontosC === null) {
+  
+  pontosA = 0
+  pontosB = 0
+  pontosC = 0
+  localStorage.setItem("pontosAA", pontosA)
+  localStorage.setItem("pontosBB", pontosB)
+  localStorage.setItem("pontosCC", pontosC)
+  
+  
+ }
+  
+  
+  if (pontosA === pontosB && pontosA === pontosC && pontosB === pontosA && pontosB === pontosC && pontosC === pontosA && pontosC === pontosB) {
+    
+if (pontosA != 0 && pontosB != 0 && pontosC != 0) {
+  document.getElementById('empate').style.display = "block"
+  
+  } 
+  }
+  if (pontosA === pontosB || pontosA === pontosC || pontosB === pontosA || pontosB === pontosC || pontosC === pontosA || pontosC === pontosB) {
+    
+if (pontosA != 0 && pontosB != 0 && pontosC != 0) {
+  document.getElementById('empate').style.display = "block"
+  
+  } 
+  }
+  
+ 
+ 
+  
+ 
+  
+  function remover() {
+    
+    localStorage.removeItem("pontosAA")
+    localStorage.removeItem("pontosBB")
+    localStorage.removeItem("pontosCC")
+    
+    
+    
+   location.reload()
+   alert("As pontuações foram excluídas!")
+   location.reload()
+  }
+  
+  
+  function sorteio() {
+    
+  if (pontosA === pontosB && pontosA === pontosC && pontosB === pontosA && pontosB === pontosC && pontosC === pontosA && pontosC === pontosB) {
+    
+  var sorteio = Math.floor(Math.random()*3)+1;
+  
+  
+  if (sorteio === 1) {
+    
+    document.write("A sala sorteada é o TERCEIRO A!")
+    
+    
+  }
+  if (sorteio === 2) {
+    
+    document.write("A sala vencedora é o TERCEIRO B!")
+    
+    
+  }
+  
+  if (sorteio === 3) {
+    
+    document.write("A sala ganhadora é o Terceiro C!")
+    
+  } 
+  if (sorteio != 1 && sorteio != 2 && sorteio != 3) {
+    
+    alert("ocorreu um erro")
+    
+  }
+    
+    
+    
+  } else {
+    
+    var sorteio = Math.floor(Math.random()*2)+1
+    
+    if (pontosA === pontosB && sorteio === 1) {
+      pontosA+++
+      localStorage.setItem("pontosAA",pontosA)
+document.write("A sala vencedora é o TERCEIRO A!")
+      
+    }
+    if (pontosA === pontosB && sorteio === 2) {
+      
+      pontosB+++
+      localStorage.setItem("pontosBB",pontosB)
+      
+document.write("A sala vencedora é o TERCEIRO B!")
+      
+    }
+  //Quando A se empatar com C:
+  
+    if (pontosA === pontosC && sorteio === 1) {
+    
+    pontosA+++
+      localStorage.setItem("pontosAA",pontosA)
+    
+      document.write("A sala vencedora é o TERCEIRO A!")
+    
+    }
+    if (pontosA === pontosC && sorteio === 2) {
+      
+      pontosC+++
+      localStorage.setItem("pontosCC", pontosC)
+    
+      document.write("A sala vencedora é o TERCEIRO C!")
+    
+    }
+    
+    //Quando B se empatar com C:
+    if (pontosB === pontosC && sorteio === 1) {
+    
+    pontosB+++
+    localStorage.setItem("pontosBB", pontosB)
+    
+      document.write("A sala vencedora é o TERCEIRO B!")
+    
+    }
+    if (pontosB === pontos && sorteio === 2) {
+      
+      pontosC+++
+      localStorage.setItem("pontosCC",pontosC)
+    
+      document.write("A sala vencedora é o TERCEIRO C!")
+    
+    }
+    
+    
+  }
+  }  
+    
+    
+    
+    
+    
+    
+  
+  
+  
+</script>
+</body>
+
+</html>

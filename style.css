@@ -1,0 +1,57 @@
+body {
+    background-image: url('Fundo.png');
+    background-size: 100% 100%;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  font: normal;
+}
+
+#terceiroAno {
+  
+  border-radius: 20px;
+  height: 200px;
+  width: 350px;
+  display: flex;
+  margin: auto;
+  
+  
+  
+  
+}
+#terceiroAno:hover {
+  border: solid 3px;
+  border-color: red;
+  
+}
+
+#results {
+  
+  
+  border-radius: 20px;
+  height: 200px;
+  width: 350px;
+  display: flex;
+  margin: auto;
+  
+  
+}
+
+h3 {
+  
+  color: yellow;
+  
+  
+}
+
+button {
+background-color: white;
+      color: black;
+      border: none;
+      border-radius: 20px;
+      height: 50px;
+      width: 200px;
+      box-shadow: 4px 8px 13px blueviolet;
+}

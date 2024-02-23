@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ferramenta para promover o hábito da limpeza na sala de aula.">
+  
+
+  <title>L N S (ESCOLA)</title>
+  
+  
+  
+<link rel="shortcut icon" type="image/x-icon" href="homem-bonito-limpando-com-aspirador-de-po-icone-do-vetor-dos-desenhos-animados-icone-saudavel-ilustracao-pessoas-isolado_138676-8387.icon">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+  
+<strong>● Com uma sala limpa agente aprende<br> melhor, agente respira melhor e agente<br> aprende a viver melhor.</strong>
+
+ <h3>L.N.S (ESCOLA)</h3>
+ <hr>
+  <br> <br>
+  
+  <div id="escola">
+    
+  </div>
+  
+  <h3>Turmas disponíveis:</h3>
+  
+  <img id="terceiroAno" src="https://i.imgur.com/XF5jbmI.jpg" alt="3° ano.png" onclick="abrirTerceiro()">
+  <hr>
+  
+  <h3>Sobre:</h3>
+  
+  <p>
+    
+    <strong>
+      • Uma ferramenta para ajudar a<br> avaliar a organização de Sala de Aula com<br> objetivo de promover bons hábitos.<br> <br>
+      • Vocês podem decidir a premiação e a<br> frequência, decidam se será um prêmio<br> semanal onde todos os dias da semana<br> vocês entram na sala e as avaliam e no<br> último dia da semana vocês revelam a sala<br> ganhadora. Ou o prêmio mensal<br> onde todos os dias do mês as salas são<br> avaliadas e a sala vencedora é revelada no<br> final do mês.<br> <br>
+      •Entrem nas salas, vejam seu estado e<br> marque aqui na ferramenta.
+      <br> <br>
+     •Caso não saibam o que deveria ser a<br> premiação, vocês podem distribuir<br> chocolates ou dar um dia de diversão aos<br> alunos, por exemplo: um dia de futebol ou<br> ir a uma chácara, e se caso achar muito<br> exagero, pode optar pela primeira opção.
+     <br> <br>
+     obs: nossa ferramenta é responsável pela<br> distribuição de pontos baseados nas<br> informações que a escola marca, o responsáveis pelo premio e todas as <br>decisões dessa parte pertecem a escola.
+      
+      
+      
+      
+      
+    </strong>
+    
+    
+    
+  </p>
+  
+  <h3>Resultados:</h3>
+  
+  <img id="results" src="resultados.png" alt="" onclick="results()">
+  <hr>
+  
+ <h3>RECLAMAÇÃO:</h3>
+ 
+ 
+ <strong>• Se tiver qualquer problema ou duvida<br> clique abaixo:</strong>
+ <br>
+ <button onclick="reclamar()">Reportar um problema</button>
+  
+  <!-- Project -->
+  
+  
+    <script src="Senha.js">Senha.js</script>
+  <script>
+    var escola = localStorage.getItem("escola")
+    var boasVindas = 0
+    localStorage.setItem("boasVindas", boasVindas)
+    boasVindas = localStorage.getItem("boasVindas")
+    var pontosA = localStorage.getItem("pontosAA")
+var pontosB = localStorage.getItem("pontosBB")
+var pontosC = localStorage.getItem("pontosCC")
+var senha = localStorage.getItem("senha")
+ 
+
+
+
+  document.getElementById('escola').innerHTML = `ESCOLA:<br> <strong>${escola}</strong>`
+    
+    if (escola != null && escola != "") {
+      if (boasVindas === 0) {
+      boasVindas = 1
+      localStorage.setItem("boasVindas", boasVindas)
+      alert(`Olá ${escola} como vocês estão? obrigado por usar essa ferramenta!`)
+      }
+      
+    }
+    
+    if (escola === null || escola === "") {
+      
+    escola = prompt("Por favor, digite o nome da escola!")
+    if (confirm("Tem certeza que esse é o nome da escola?")) {
+      
+      localStorage.setItem("escola", escola)
+     location.reload()
+      
+    } else {
+      
+      location.reload();
+      
+    }
+      
+    }
+    
+
+    
+    function abrirTerceiro() {
+  
+  alert("Lembre-se! o site so pode ser usado pelo aparelho de quem ficou responsável pela avaliação das salas, pois as pontuações só ficam salvas aqui no seu navegador.")
+  
+window.location.href = 'terceiro ano.html'
+  
+  
+}
+    
+    function results() {
+      
+      if (pontosA === 0 || pontosB === 0 || pontosC === 0) {
+      
+       alert("Vocês não tem nenhuma pontuação ainda.")
+       window.stop()
+      
+      } else {
+        
+        window.location.href = 'Resultados.html'
+        
+        
+      }
+      
+      
+    }
+    
+    
+    function reclamar() {
+      
+      window.open(`https://wa.me/5587991470000?text=Olá somos da ${escola}, queremos falar sobre o site.`)
+      
+      
+    }
+    
+    
+    
+    
+  </script>
+
+  <hr />
+  <footer>☆criado por Caio☆</footer>
+</body>
+</html>
